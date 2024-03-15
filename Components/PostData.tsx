@@ -6,11 +6,11 @@ interface postDataProps {
   title?: String;
   body?: String;
   className?: String;
-  like?: Function;
+  like?:any;
   index?: Number;
   liked?: boolean;
   favourites?:boolean;
-  remove?:Function
+  remove?:any
 }
 
 const PostData: React.FC<postDataProps> = (props: postDataProps) => {
