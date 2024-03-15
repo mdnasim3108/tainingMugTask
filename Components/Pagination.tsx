@@ -33,29 +33,7 @@ const Pagination:React.FC<PaginationProps> = (props) => {
 
       </div>
 
-      {/* <div className="flex lg:w-[110px] w-max flex-col lg:flex-row  lg:justify-between items-center" onClick={() => setHovered(!hovered)}
-      >
-        <p>show</p>
-
-        <div className="border-2 border-gray-300 w-[4rem] rounded py-1 justify-around flex  items-center">
-          <p>{props.data.length>8?16:8}</p>
-        </div>
-      </div> */}
-
-     {/* {hovered && <div className="w-[4rem] h-[3rem] bg-white rounded border-2 border-gray-400 absolute right-0 lg:top-[-3rem] top-[-1rem]">
-          <div className="border-b-2 h-[1.5rem] border-b-gray-300 text-center cursor-pointer " onClick={()=>{
-            setHovered(!hovered)
-            props.half()
-          }}>
-              <p>8</p>
-          </div>
-          <div className="border-b-2 h-[1.5rem] text-center cursor-pointer" onClick={()=>{
-            setHovered(!hovered)
-            props.full()
-          }}>
-              <p>16</p>
-          </div>
-      </div>}  */}
+      
     </div>
   );
 };
