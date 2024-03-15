@@ -10,7 +10,7 @@ const LikedPosts: React.FC = () => {
   const likedPosts = useSelector((state: RootState) => state.post.likedPosts);
   const dispatch = useDispatch();
   return (
-    <Dashboard change={(e: Object) => setSearch(e.target.value)}>
+    <Dashboard change={(e:any) => setSearch(e.target.value)}>
       <div className="w-full h-full p-5">
         <div className=" border  rounded-t h-[90%] overflow-scroll relative">
           <div className="grid grid-cols-9 border-b bg-[#f9fafb] fixed w-[80%] mb-4 z-10">
@@ -22,7 +22,7 @@ const LikedPosts: React.FC = () => {
           </div>
           {likedPosts.length ? (
             
-              likedPosts.filter((post: Object) => post.title.includes(search))
+              likedPosts.filter((post: any) => post.title.includes(search))
               .map((post: Object, index: number) =>
                 index === 0 ? (
                   <PostData

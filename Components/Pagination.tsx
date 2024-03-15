@@ -1,19 +1,19 @@
 
 import {useState} from "react"
 interface PaginationProps{
-    next?:Function
-    back?:Function
-    range?:Object
-    data?:Array<Object>
+    next?:any
+    back?:any
+    range?:any
+    data?:any
 }
-const Pagination:React.FC<PaginationProps> = (props:Object) => {
+const Pagination:React.FC<PaginationProps> = (props) => {
   return (
     <div className="w-full  flex justify-center  items-center  mt-4 relative" >
 
 
       <div className="flex justify-between  lg:w-[300px] w-[150px] items-center">
 
-        <p className={`font-inter ${!props.range.start>0?"opacity-[0.5]":"opacity-100"} cursor-pointer`} onClick={()=>{
+        <p className={`font-inter ${!(props.range.start>0)?"opacity-[0.5]":"opacity-100"} cursor-pointer`} onClick={()=>{
             if(props.range.start>0)props.back()
         }}>previous</p>
 

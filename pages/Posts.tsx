@@ -7,6 +7,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { addPost, removePost } from "@/GlobalRedux/postSlice/postSlice";
 import { RootState } from "@/GlobalRedux/store";
 const Posts: React.FC = () => {
+  interface postInterface{
+    id:number,
+    title:String,
+    userId:number
+  }
   const [posts, setPosts] = useState([]);
   const [range, setRange] = useState({ start: 0, end: 20 });
   const [search, setSearch] = useState("");
@@ -18,16 +23,16 @@ const Posts: React.FC = () => {
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/posts").then((res) =>
       setPosts(
-        res.data.map((post) => {
-          const likedTitles=likedPosts.map(likedPost =>likedPost.title)
+        res.data.map((post:postInterface) => {
+          const likedTitles=likedPosts.map((likedPost:any) =>likedPost.title)
           if(likedTitles.includes(post.title)) return { ...post, liked: true };
           return { ...post, liked: false };
         })
       )
     );
   }, []);
-  const likeHandler = (index) => {
-    const updated = [...posts];
+  const likeHandler = (index:number) => {
+    const updated:any = [...posts];
     if (!updated[index].liked) {
       dispatch(addPost(updated[index]));
     }
@@ -36,7 +41,7 @@ const Posts: React.FC = () => {
     setPosts(updated);
   };
   return (
-    <Dashboard change={(e: Object) => setSearch(e.target.value)}>
+    <Dashboard change={(e: any) => setSearch(e.target.value)}>
       <div className="w-full h-full p-5">
         <div className=" border  rounded-t h-[90%] overflow-scroll relative">
           <div className="grid grid-cols-9 border-b bg-[#f9fafb] fixed w-[80%] mb-4 z-10">
@@ -49,7 +54,7 @@ const Posts: React.FC = () => {
           {posts.length ? (
             posts
               .slice(range.start, range.end)
-              .filter((post: Object) => post.title.includes(search))
+              .filter((post: postInterface) => post.title.includes(search))
               .map((post: Object, index: number) =>
                 index === 0 ? (
                   <PostData

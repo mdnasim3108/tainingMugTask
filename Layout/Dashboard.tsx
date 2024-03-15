@@ -6,7 +6,7 @@ import Image from "next/image";
 import userImg from "../public/profileImg.avif";
 interface componentProps {
   children?: React.ReactNode;
-  change?:Function
+  change?:(e:Object)=>void
 }
 const Dashboard: React.FC<componentProps> = (props) => {
   const router = useRouter();
